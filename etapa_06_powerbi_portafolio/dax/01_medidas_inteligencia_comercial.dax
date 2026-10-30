@@ -1,0 +1,28 @@
+-- Copiar UNA medida a la vez con Modelado > Nueva medida.
+-- Tablas importadas EXACTAMENTE como indica 01_powerbi_paso_a_paso.md.
+
+V18 Ventas netas GBP =
+CALCULATE(MAX(v18_kpis[valor]), v18_kpis[indicador] = "Ventas netas")
+
+V18 Tasa abonos puntos =
+CALCULATE(MAX(v18_kpis[valor]), v18_kpis[indicador] = "Tasa de abonos")
+
+V18 Tasa abonos etiqueta =
+FORMAT([V18 Tasa abonos puntos], "0.00") & "%"
+
+V18 Productos ABC =
+CALCULATE(MAX(v18_kpis[valor]), v18_kpis[indicador] = "Productos ABC con neto positivo")
+
+V18 Numero alertas =
+COUNTROWS(v18_alertas)
+
+V18 Participación A puntos =
+CALCULATE(MAX(v18_abc[participacion_pct]), v18_abc[categoria_abc] = "A")
+
+V18 Participación A etiqueta =
+FORMAT([V18 Participación A puntos], "0.00") & "%"
+
+V18 Importe neto Top10 GBP =
+SUM(v18_top_productos[ventas_netas_gbp])
+
+-- No interpretar [V18 Importe neto Top10 GBP] como ventas totales.

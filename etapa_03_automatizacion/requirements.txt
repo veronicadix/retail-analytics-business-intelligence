@@ -1,0 +1,4 @@
+psycopg[binary]>=3.3,<4
+google-cloud-bigquery>=3.40,<4
+google-auth>=2.40,<3
+python-dotenv>=1.2,<2

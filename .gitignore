@@ -1,0 +1,26 @@
+# Credenciales y entorno local
+.env
+.env.*
+!.env.example
+.venv/
+**/.venv/
+**/__pycache__/
+*.pyc
+*service-account*.json
+*application_default_credentials*.json
+*.pem
+*.key
+# Datos privados y artefactos locales
+*.csv
+*.parquet
+*.xlsx
+*.pbix
+*.backup
+*.dump
+**/salidas/
+**/logs/
+*.log
+*.lock
+# Sistemas
+.DS_Store
+Thumbs.db

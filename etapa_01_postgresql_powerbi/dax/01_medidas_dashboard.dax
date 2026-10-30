@@ -1,0 +1,101 @@
+// Power BI DAX | Etapa 1 | Medidas reconstruidas del trabajo documentado.
+// Crear/revisar UNA medida a la vez. No pegar este archivo completo en una sola fórmula.
+// Ubicación habitual de medidas: tabla Calendario (pueden depender de otras tablas).
+// Atención: comprueba medidas ya existentes antes de crear duplicados.
+
+// Página 1. Base comercial. Referencia sin filtros: 11.188.061.
+Unidades vendidas =
+CALCULATE(
+    SUM('public base_movimientos'[cantidad]),
+    'public base_movimientos'[incluir_demanda_unidades] = 1
+)
+
+// Página 3. Cantidad de clientes elegibles en perfil: 5.852.
+Clientes analizados =
+COUNTROWS('public vw_perfil_clientes')
+
+// Página 3. Clientes con al menos dos facturas, sin reemplazar medida preexistente.
+// Referencia observada: 4.234.
+Clientes con 2 o más compras =
+CALCULATE(
+    COUNTROWS('public vw_perfil_clientes'),
+    'public vw_perfil_clientes'[numero_compras] >= 2
+)
+
+// Página 3. Ticket promedio sobre facturas elegibles para recompra.
+// Referencia observada en Power BI: 466,43 GBP.
+Ticket promedio GBP =
+DIVIDE(
+    CALCULATE(
+        SUM('public facturas_venta'[importe_bruto_mercancia_gbp]),
+        'public facturas_venta'[incluir_recompra] = 1
+    ),
+    CALCULATE(
+        DISTINCTCOUNT('public facturas_venta'[factura]),
+        'public facturas_venta'[incluir_recompra] = 1
+    )
+)
+
+// Página 4. Columna CALCULADA (no medida), dentro de public vw_producto_mes.
+// Año_Comparacion = YEAR('public vw_producto_mes'[mes])
+
+// Página 4. Importe 2010.
+Ventas netas 2010 GBP =
+CALCULATE(
+    SUM('public vw_producto_mes'[ventas_netas_mercancia_gbp]),
+    'public vw_producto_mes'[Año_Comparacion] = 2010
+)
+
+// Página 4. Importe 2011.
+Ventas netas 2011 GBP =
+CALCULATE(
+    SUM('public vw_producto_mes'[ventas_netas_mercancia_gbp]),
+    'public vw_producto_mes'[Año_Comparacion] = 2011
+)
+
+// Página 4. Variación de 2011 frente a 2010 incluyendo diciembre parcial 2011.
+// Valor observado en tarjeta: -1,34 %.
+Variacion interanual % =
+DIVIDE(
+    [Ventas netas 2011 GBP] - [Ventas netas 2010 GBP],
+    [Ventas netas 2010 GBP]
+)
+
+// Página 4. Comparación enero-noviembre; conservar en tabla Calendario.
+// Valor observado en tarjeta: +0,02 %.
+Variacion interanual comparable % =
+VAR Ventas2010 =
+    CALCULATE(
+        SUM('public vw_producto_mes'[ventas_netas_mercancia_gbp]),
+        'public vw_producto_mes'[Año_Comparacion] = 2010,
+        FILTER(
+            ALL('public vw_producto_mes'[mes]),
+            MONTH('public vw_producto_mes'[mes]) <= 11
+        )
+    )
+VAR Ventas2011 =
+    CALCULATE(
+        SUM('public vw_producto_mes'[ventas_netas_mercancia_gbp]),
+        'public vw_producto_mes'[Año_Comparacion] = 2011,
+        FILTER(
+            ALL('public vw_producto_mes'[mes]),
+            MONTH('public vw_producto_mes'[mes]) <= 11
+        )
+    )
+RETURN DIVIDE(Ventas2011 - Ventas2010, Ventas2010)
+
+// Página 5. Control de movimientos.
+Total movimientos = COUNTROWS('public base_movimientos')
+
+// Página 5. Control de identificadores (en datos verificados: no hay nulos).
+Identificadores duplicados =
+COUNTROWS('public base_movimientos') -
+DISTINCTCOUNT('public base_movimientos'[id_linea])
+
+// Página 5. Cero en vez de BLANK cuando no hay faltantes.
+Fechas nulas =
+COALESCE(
+    COUNTROWS(
+        FILTER('public base_movimientos', ISBLANK('public base_movimientos'[fecha]))
+    ), 0
+)
