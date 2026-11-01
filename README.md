@@ -1,7 +1,24 @@
 Retail Analytics | De los datos de ventas a la inteligencia comercial
-
 Proyecto de portafolio | PostgreSQL · SQL · Python · BigQuery · Power BI
+Portfolio Projects | Casos empresariales
+Este repositorio reúne casos de Business Intelligence y Data Analytics desarrollados a partir de datos históricos. Cada caso presenta una pregunta de negocio, metodología, código reproducible y evidencia de resultados.
+Caso 1 — Retail Sales Intelligence 360
+Pregunta de negocio: ¿Qué productos y segmentos impulsan las ventas y cuáles requieren seguimiento?
 
+Tecnologías: PostgreSQL, SQL, Python, BigQuery, Power BI y DAX.
+Evidencia: 1.033.036 movimientos; dashboard ejecutivo de siete páginas; análisis ABC y cuatro alertas comerciales basadas en reglas.
+
+[Explorar el Caso 1 (etapas y dashboard)](./etapa_01_postgresql_powerbi/) · [Ver capturas de Power BI](./capturas/)
+Caso 2 — Customer Retention & Revenue Growth
+Pregunta de negocio: ¿Qué clientes presentan patrones de recompra, cuáles muestran retraso respecto de sus intervalos históricos y qué segmentos conviene priorizar para investigación comercial?
+
+Tecnologías: PostgreSQL, SQL, Python, pandas, matplotlib y seaborn.
+Evidencia: 5.852 clientes segmentados en siete grupos RFM; 25 cohortes mensuales de adquisición; retención ponderada de 23,34 % en mes 1, 24,98 % en mes 3 y 22,17 % en mes 6 (con cohortes elegibles diferentes); 892 clientes con recompra retrasada y GBP 2,42 millones de compras netas históricas asociadas.
+
+[Explorar el Caso 2](./caso_02_customer_retention/) · [Metodología](./caso_02_customer_retention/documentacion/METODOLOGIA.md) · [README en español](./caso_02_customer_retention/documentacion/README_ES.md) · [English README](./caso_02_customer_retention/documentacion/README_EN.md) · [Visualizaciones](./caso_02_customer_retention/visualizaciones/)
+Alcance: los importes son históricos, no ingresos futuros ni recuperables garantizados. La clasificación de retraso es exploratoria; el análisis independiente con Olist está pendiente.
+
+Detalle del Caso 1 — Retail Analytics
 Sobre el proyecto
 
 En este proyecto quise trabajar sobre un problema habitual en las empresas: disponer de grandes volúmenes de información comercial, pero necesitar un proceso claro para convertirlos en indicadores útiles para el negocio.
@@ -34,15 +51,7 @@ Arquitectura
 
 La solución combina PostgreSQL, Python, BigQuery y Power BI.
 
-flowchart LR
-    A[PostgreSQL: datos y catálogo] --> B[Python: extracción y validación]
-    B --> C[BigQuery Sandbox: staging y raw]
-    C --> D[Vistas SQL: indicadores]
-    A --> E[Análisis Pareto ABC]
-    D --> F[Python: informes y reglas comerciales]
-    E --> F
-    F --> G[Indicadores y alertas]
-    G --> H[Power BI: dashboard comercial]
+flowchart LR A[PostgreSQL: datos y catálogo] --> B[Python: extracción y validación] B --> C[BigQuery Sandbox: staging y raw] C --> D[Vistas SQL: indicadores] A --> E[Análisis Pareto ABC] D --> F[Python: informes y reglas comerciales] E --> F F --> G[Indicadores y alertas] G --> H[Power BI: dashboard comercial]
 
 PostgreSQL se utiliza para organizar los movimientos, aplicar reglas de negocio y crear las vistas necesarias para el análisis.
 
@@ -147,65 +156,37 @@ La base Pareto positiva es de GBP 18.927.963,33, mientras que las ventas netas g
 Dashboard en Power BI
 
 El resultado visual del proyecto es un dashboard de siete páginas, diseñado para presentar los indicadores de manera ordenada y facilitar su interpretación.
-
-01. Resumen comercial
-
-
-
+1. Resumen comercial
 Esta página presenta los indicadores generales de ventas brutas, abonos, ventas netas, facturas, clientes y unidades vendidas.
 
 También incluye la evolución mensual y un segmentador de fechas para consultar distintos períodos.
-
-02. Prioridad de productos
-
-
-
+2. Prioridad de productos
 Aquí reuní los análisis que permiten identificar productos relevantes por ventas netas, participación ABC y recompra.
 
 La página incluye rankings, distribución por categorías y una tabla de detalle para consultar productos específicos.
-
-03. Crecimiento y abonos
-
-
-
+3. Crecimiento y abonos
 Esta página compara el comportamiento de los productos entre enero y noviembre de 2010 y el mismo período de 2011.
 
 Además del crecimiento porcentual, incorporé el incremento absoluto en GBP. Esta distinción es importante porque un producto puede presentar una variación porcentual muy elevada cuando sus ventas del año anterior fueron pequeñas.
 
 También incluí un ranking por tasa de abonos. Para reducir distorsiones por ventas brutas prácticamente nulas, utilicé un umbral exploratorio mínimo de GBP 1.000 por producto.
-
-04. Clientes y retención
-
-
-
+4. Clientes y retención
 El análisis de clientes incluye recurrencia de compra, ticket bruto promedio, clasificación por segmentos y rankings por valor comercial.
 
 El objetivo es diferenciar grupos de clientes que pueden requerir estrategias de fidelización, desarrollo o reactivación.
-
-05. Evolución y planificación
-
-
-
+5. Evolución y planificación
 Esta página muestra la evolución mensual de unidades vendidas y la comparación de ventas netas entre 2010 y 2011.
 
 Para mantener períodos comparables, el indicador interanual utiliza enero a noviembre de ambos años. El crecimiento obtenido fue de aproximadamente 2,33 %.
 
 Diciembre de 2011 contiene registros únicamente hasta el día 9 y se identifica como un período parcial.
-
-06. Calidad y metodología
-
-
-
+6. Calidad y metodología
 Consideré importante dedicar una página a explicar cómo se construyeron los indicadores.
 
 Incluye la clasificación de los movimientos comerciales, las reglas de inclusión, los controles de calidad y las diferencias entre los importes registrados y las ventas netas calculadas.
 
 Los controles presentados muestran cero identificadores duplicados y cero fechas nulas.
-
-07. Inteligencia comercial
-
-
-
+7. Inteligencia comercial
 La última página reúne indicadores de negocio, análisis ABC y cuatro alertas comerciales generadas mediante reglas.
 
 Cada alerta incluye la evidencia que la origina, una acción sugerida y una limitación de interpretación.
@@ -257,39 +238,27 @@ Etapa
 Herramientas
 
 Trabajo realizado
-
-01. Preparación de datos y BI
-
+1. Preparación de datos y BI
 PostgreSQL, SQL, Power BI
 
 Organización de datos, reglas de negocio, vistas y dashboard inicial
-
-02. Analítica en la nube
-
+2. Analítica en la nube
 BigQuery Sandbox
 
 Carga y conciliación de datos y vistas analíticas
-
-03. Automatización
-
+3. Automatización
 Python, Windows Task Scheduler
 
 Pipeline de carga y programación semanal
-
-04. Informes comerciales
-
+4. Informes comerciales
 Python
 
 Generación local de informes; Claude API quedó como opción futura
-
-05. Inteligencia comercial
-
+5. Inteligencia comercial
 Python
 
 Alertas comerciales y recomendaciones basadas en reglas
-
-06. Dashboard de portafolio
-
+6. Dashboard de portafolio
 Power BI, DAX
 
 Dashboard final de siete páginas con diseño unificado
@@ -298,28 +267,7 @@ El proyecto se desarrolló de forma incremental, conservando versiones anteriore
 
 Organización del repositorio
 
-retail-analytics-business-intelligence/
-│
-├── README.md
-├── .gitignore
-├── .env.example
-│
-├── capturas/
-│   ├── 01_resumen_comercial.png
-│   ├── 02_prioridad_productos.png
-│   ├── 03_crecimiento_abonos.png
-│   ├── 04_clientes_retencion.png
-│   ├── 05_evolucion_planificacion.png
-│   ├── 06_calidad_metodologia.png
-│   └── 07_inteligencia_comercial.png
-│
-├── docs/
-├── etapa_01_postgresql_powerbi/
-├── etapa_02_bigquery/
-├── etapa_03_automatizacion/
-├── etapa_04_claude_api/
-├── etapa_05_inteligencia_comercial/
-└── etapa_06_powerbi_portafolio/
+retail-analytics-business-intelligence/ │ ├── README.md ├── .gitignore ├── .env.example │ ├── capturas/ │ ├── 01_resumen_comercial.png │ ├── 02_prioridad_productos.png │ ├── 03_crecimiento_abonos.png │ ├── 04_clientes_retencion.png │ ├── 05_evolucion_planificacion.png │ ├── 06_calidad_metodologia.png │ └── 07_inteligencia_comercial.png │ ├── docs/ ├── etapa_01_postgresql_powerbi/ ├── etapa_02_bigquery/ ├── etapa_03_automatizacion/ ├── etapa_04_claude_api/ ├── etapa_05_inteligencia_comercial/ └── etapa_06_powerbi_portafolio/
 
 Documentación técnica
 
