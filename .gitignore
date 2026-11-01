@@ -24,3 +24,8 @@
 # Sistemas
 .DS_Store
 Thumbs.db
+
+# Olist - excluir archivos originales
+caso_02_customer_retention/olist/datos/*.csv
+caso_02_customer_retention/olist/brazilian-ecommerce.zip
+caso_02_customer_retention/olist/olist_sql_caso_02.zip
