@@ -314,3 +314,35 @@ El proyecto reúne conocimientos de SQL, PostgreSQL, Python, BigQuery, Power BI,
 **Retail Analytics V18 — Proyecto de portafolio profesional**
 
 Business Intelligence · Data Analytics · SQL · Python · Power BI · Google BigQuery
+
+
+---
+
+## Caso 2 — Customer Retention & Revenue Growth
+
+Análisis de retención y recompra de clientes utilizando
+dos datasets independientes: Online Retail II y
+Olist Brazilian E-Commerce.
+
+### Resultados destacados
+
+| Indicador | Online Retail II | Olist |
+|---|---:|---:|
+| Clientes analizados | 5.852 | 93.358 |
+| Tasa de recompra | 72,35 % | 3,00 % |
+| Retención M1 | 23,34 % | 0,48 % |
+| Retención M3 | 24,98 % | 0,26 % |
+| Retención M6 | 22,17 % | 0,24 % |
+
+Los datasets se analizan de manera independiente.
+Sus diferencias reflejan contextos y reglas de negocio
+distintos; no constituyen una comparación causal.
+
+### Explorar el Caso 2
+
+- [Documentación en español](caso_02_customer_retention/documentacion/README_ES.md)
+- [English documentation](caso_02_customer_retention/documentacion/README_EN.md)
+- [Análisis de Olist](caso_02_customer_retention/olist/documentacion/README_ES.md)
+- [Olist — English documentation](caso_02_customer_retention/olist/documentacion/README_EN.md)
+- [Visualizaciones de Olist](caso_02_customer_retention/olist/visualizaciones/)
+- [Scripts SQL de Olist](caso_02_customer_retention/olist/sql/)

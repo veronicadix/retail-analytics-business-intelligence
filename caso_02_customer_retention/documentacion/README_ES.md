@@ -100,8 +100,52 @@ Las vistas SQL dependen de objetos preexistentes del Caso 1 (`facturas_venta` y 
 - `NTILE(5)` puede separar clientes empatados entre quintiles; las puntuaciones son relativas.
 - No se dispone de experimentos de marketing ni de costos de campañas para estimar retorno.
 - Las retenciones por horizonte se calculan con cohortes elegibles distintas y no implican abandono definitivo.
-- **Olist es una extensión pendiente:** debe analizarse como fuente y modelo separados; no se ha unido a Online Retail II ni se han producido hallazgos comparables todavía.
+- **Olist — extensión completada:** se desarrolló un análisis independiente de 93.358 compradores, con indicadores de recompra (3,00 %), retención por cohortes (M1: 0,48 %; M3: 0,26 %; M6: 0,24 %), RFM y segmentación comercial. Los resultados se comparan metodológicamente con Online Retail II, sin unir los registros de ambos datasets. La documentación, los scripts SQL, los resultados y las visualizaciones están disponibles en [Olist](../olist/documentacion/README_ES.md).
 
 ## Informe ejecutivo
 
 Véase `resultados/Caso_02_Informe_Ejecutivo_Retencion_ES.docx`.
+
+## Ampliación del Caso 2 — Olist Brazilian E-Commerce
+
+Se desarrolló un segundo análisis de retención utilizando
+el dataset Olist Brazilian E-Commerce, manteniendo los datos
+independientes de Online Retail II.
+
+### Principales resultados
+
+| Indicador | Resultado |
+|---|---:|
+| Compradores analizados | 93.358 |
+| Pedidos entregados | 96.478 |
+| Tasa de recompra | 3,00 % |
+| Retención M1 | 0,48 % |
+| Retención M3 | 0,26 % |
+| Retención M6 | 0,24 % |
+| Valor histórico de productos | R$ 13.221.498,11 |
+
+### Análisis desarrollados
+
+- Recompra y comportamiento de compradores.
+- Retención mensual mediante cohortes.
+- Segmentación RFM.
+- Identificación de oportunidades comerciales.
+- Comparación metodológica con Online Retail II.
+
+### Documentación y entregables
+
+- [Documentación completa de Olist](../olist/documentacion/README_ES.md)
+- [Documentación en inglés](../olist/documentacion/README_EN.md)
+- [Scripts SQL](../olist/sql/)
+- [Resultados CSV](../olist/resultados/)
+- [Visualizaciones](../olist/visualizaciones/)
+- [Código Python](../olist/python/)
+
+### Consideraciones metodológicas
+
+Los resultados corresponden a datos históricos.
+Las tasas de retención se calculan para meses específicos
+y cohortes elegibles, no representan retención acumulada.
+
+Los dos datasets se analizan de forma independiente:
+no se han combinado transacciones ni clientes.

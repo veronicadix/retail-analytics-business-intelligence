@@ -60,4 +60,51 @@ Pilot retention outreach on prioritized groups with a control group; measure inc
 
 ## Limitations and roadmap
 
-Historical data only; no assertions about today's customer status. `NTILE(5)` can split ties across scores. Month 6 includes fewer eligible acquisition cohorts than month 1. Historical purchase amounts are not forecasts or guaranteed recoverable revenue. December 2011 is incomplete and excluded from full-month comparisons. **Olist analysis remains pending** and must be modeled separately; it has not been joined to Online Retail II or used to produce comparative findings.
+Historical data only; no assertions about today's customer status. `NTILE(5)` can split ties across scores. Month 6 includes fewer eligible acquisition cohorts than month 1. Historical purchase amounts are not forecasts or guaranteed recoverable revenue. December 2011 is incomplete and excluded from full-month comparisons. **Olist analysis is complete:** an independent analysis of 93,358 customers was conducted, covering repeat purchases (3.00%), monthly cohort retention (M1: 0.48%; M3: 0.26%; M6: 0.24%), RFM metrics, and customer segmentation. The findings are compared methodologically with Online Retail II without merging the datasets. SQL scripts, results, visualizations, and documentation are available in the [Olist analysis](../olist/documentacion/README_EN.md).
+
+## Case 2 Extension — Olist Brazilian E-Commerce
+
+A second customer retention analysis was developed using
+the Olist Brazilian E-Commerce dataset, independently
+from Online Retail II.
+
+### Key Business Results
+
+| KPI | Result |
+|---|---:|
+| Unique customers | 93,358 |
+| Delivered orders | 96,478 |
+| Repeat purchase rate | 3.00% |
+| Month 1 retention | 0.48% |
+| Month 3 retention | 0.26% |
+| Month 6 retention | 0.24% |
+| Historical product revenue | BRL 13,221,498.11 |
+
+### Analysis Delivered
+
+- Customer repeat purchase analysis.
+- Monthly cohort retention analysis.
+- RFM metrics and customer segmentation.
+- Identification of commercial opportunities.
+- Methodological comparison with Online Retail II.
+
+### Documentation and Deliverables
+
+- [Olist full documentation](../olist/documentacion/README_EN.md)
+- [Spanish documentation](../olist/documentacion/README_ES.md)
+- [SQL scripts](../olist/sql/)
+- [CSV results](../olist/resultados/)
+- [Visualizations](../olist/visualizaciones/)
+- [Python code](../olist/python/)
+
+### Methodological Considerations
+
+All findings are based on historical transaction data.
+
+Monthly retention is measured for specific months
+using eligible acquisition cohorts, rather than
+as cumulative retention.
+
+Olist and Online Retail II are analyzed independently.
+Customer records and transactions from the two datasets
+have not been merged.

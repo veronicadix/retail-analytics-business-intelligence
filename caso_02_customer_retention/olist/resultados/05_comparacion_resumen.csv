@@ -1,0 +1,3 @@
+﻿dataset,compradores_unicos,compradores_una_compra,compradores_recurrentes,tasa_recompra_pct,retencion_m1_pct,retencion_m3_pct,retencion_m6_pct
+Online Retail II,5852,1618,4234,72.35,23.34,24.98,22.17
+Olist,93358,90557,2801,3.00,0.48,0.26,0.24
