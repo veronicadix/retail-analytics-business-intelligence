@@ -1,0 +1,53 @@
+{
+  "metodo": "4 ventanas de validacion de 28 dias, seguidas de test final independiente de 28 dias",
+  "validacion_periodos": [
+    {
+      "inicio": "2015-12-07",
+      "fin": "2016-01-03"
+    },
+    {
+      "inicio": "2016-01-04",
+      "fin": "2016-01-31"
+    },
+    {
+      "inicio": "2016-02-01",
+      "fin": "2016-02-28"
+    },
+    {
+      "inicio": "2016-02-29",
+      "fin": "2016-03-27"
+    }
+  ],
+  "test_final": {
+    "inicio": "2016-03-28",
+    "fin": "2016-04-24"
+  },
+  "eleccion_por_validacion": {
+    "Dia_semana_8s": 28,
+    "Naive_7": 2
+  },
+  "resultados_test_final": [
+    {
+      "politica": "Dia_semana_8s",
+      "WAPE_pct": 9.326362381360328,
+      "Sesgo_pct": -0.6554857699982933,
+      "MAE": 131.4157738095238,
+      "unidades_reales": 1183626.0
+    },
+    {
+      "politica": "Seleccion_validacion",
+      "WAPE_pct": 9.517005371629214,
+      "Sesgo_pct": -0.5996826700325948,
+      "MAE": 134.10208333333333,
+      "unidades_reales": 1183626.0
+    },
+    {
+      "politica": "Naive_7",
+      "WAPE_pct": 13.235599758707565,
+      "Sesgo_pct": -2.855124845179136,
+      "MAE": 186.5,
+      "unidades_reales": 1183626.0
+    }
+  ],
+  "advertencia": "Seleccionar sobre validacion no garantiza superar baseline en test final."
+}

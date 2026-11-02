@@ -1,0 +1,30 @@
+{
+  "nivel": "ventas diarias agregadas de todas las tiendas y productos",
+  "fecha_inicio_entrenamiento": "2011-01-29",
+  "fecha_fin_entrenamiento": "2016-03-27",
+  "fecha_inicio_prueba": "2016-03-28",
+  "fecha_fin_prueba": "2016-04-24",
+  "horizonte_dias": 28,
+  "mejor_baseline_por_WAPE": "Dia_semana_8s",
+  "metricas": [
+    {
+      "modelo": "Dia_semana_8s",
+      "MAE": 2331.3928571428573,
+      "WAPE_pct": 5.515171177382045,
+      "Sesgo_pct": -0.6554857699982933
+    },
+    {
+      "modelo": "Naive_7",
+      "MAE": 3231.1428571428573,
+      "WAPE_pct": 7.643630673878405,
+      "Sesgo_pct": -2.855124845179136
+    },
+    {
+      "modelo": "Media_28",
+      "MAE": 5959.227040816327,
+      "WAPE_pct": 14.097219657464196,
+      "Sesgo_pct": -0.6386307837103999
+    }
+  ],
+  "nota": "Evaluacion holdout unica: no demuestra generalizacion. No se usa stock real ni es aun un modelo por SKU."
+}

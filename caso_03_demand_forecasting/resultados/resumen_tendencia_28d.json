@@ -1,0 +1,26 @@
+{
+  "periodo_prueba": [
+    "2016-03-28",
+    "2016-04-24"
+  ],
+  "horizonte_dias": 28,
+  "modelo_seleccionado_en_validacion": {
+    "ventana_dias": 364,
+    "penalizacion": 56.0
+  },
+  "metricas_prueba": [
+    {
+      "modelo": "Dia_semana_8s",
+      "MAE": 2331.3928571428573,
+      "WAPE_pct": 5.515171177382045,
+      "Sesgo_pct": -0.6554857699982933
+    },
+    {
+      "modelo": "Tendencia_semanal",
+      "MAE": 2770.1988873771966,
+      "WAPE_pct": 6.55321603670091,
+      "Sesgo_pct": -4.167867550222315
+    }
+  ],
+  "nota": "Modelo agregado, sin stock real. Una sola prueba final de 28 días. La validación temporal selecciona los parámetros antes del holdout."
+}

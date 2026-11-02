@@ -1,0 +1,15 @@
+{
+  "periodo": "28 dias de test; supuestos economicos ilustrativos",
+  "nota": "Evaluacion de sensibilidad, no optimizacion ni utilidad financiera real.",
+  "formula": "costo_total = inventario_medio * costo_mantener_unidad_28d + demanda_no_atendida * costo_faltante_unidad",
+  "excluidos": [
+    "costo de compra",
+    "margen real",
+    "costos de pedido",
+    "restricciones de capital",
+    "descuentos",
+    "caducidad"
+  ],
+  "inventario_medio_adicional": 189136.0,
+  "demanda_adicional_atendida": 122219.0
+}

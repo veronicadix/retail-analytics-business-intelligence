@@ -1,0 +1,11 @@
+{
+  "periodo_test": "2016-03-28 a 2016-04-24",
+  "modelo": "Media 8 semanas del mismo dia de semana, por producto-tienda",
+  "series": 30490,
+  "series_sin_ventas_en_test": 1587,
+  "series_con_28_dias_cero_en_entrenamiento": 1102,
+  "WAPE_micro_producto_pct": 76.217,
+  "Sesgo_global_pct": -0.6555,
+  "MAE_por_producto_dia": 1.0567,
+  "nota": "WAPE micro a nivel producto no es equivalente a WAPE de demanda agregada. No usar WAPE individual cuando venta real = 0."
+}

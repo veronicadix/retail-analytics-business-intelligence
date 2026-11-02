@@ -1,0 +1,28 @@
+{
+  "periodo_prueba": [
+    "2016-03-28",
+    "2016-04-24"
+  ],
+  "horizonte_dias": 28,
+  "numero_series_tienda_categoria": 30,
+  "mejor_modelo_global_segmentado_por_WAPE": "Dia_semana_8s",
+  "metricas_globales_segmentadas": [
+    {
+      "modelo": "Dia_semana_8s",
+      "MAE": 131.4157738095238,
+      "WAPE_pct": 9.326362381360328,
+      "Sesgo_pct": -0.6554857699982933,
+      "Unidades_reales": 1183626,
+      "Unidades_pronosticadas": 1175867.5
+    },
+    {
+      "modelo": "Naive_7",
+      "MAE": 186.5,
+      "WAPE_pct": 13.235599758707565,
+      "Sesgo_pct": -2.855124845179136,
+      "Unidades_reales": 1183626,
+      "Unidades_pronosticadas": 1149832.0
+    }
+  ],
+  "nota": "Se pronostica cada tienda-categoria por separado. El WAPE global suma errores absolutos por segmento, por lo que no es directamente comparable con el WAPE de la demanda agregada. El mejor modelo por segmento es descriptivo del test, no una politica validada para elegir modelos en el futuro."
+}

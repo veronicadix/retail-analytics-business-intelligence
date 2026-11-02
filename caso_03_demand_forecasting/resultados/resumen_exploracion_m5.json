@@ -1,0 +1,31 @@
+{
+  "dataset": "M5 Forecasting Accuracy (sales_train_validation)",
+  "series_producto_tienda": 30490,
+  "dias_historicos": 1913,
+  "fecha_inicio": "2011-01-29",
+  "fecha_fin": "2016-04-24",
+  "unidades_totales": 65695409,
+  "valores_nulos_ventas": 0,
+  "fechas_sin_coincidencia_calendario": 0,
+  "filas_calendario": 1969,
+  "filas_precios": 6841121,
+  "precios_nulos": 0,
+  "categorias": {
+    "HOBBIES": 6124800,
+    "HOUSEHOLD": 14480670,
+    "FOODS": 45089939
+  },
+  "tiendas": {
+    "CA_1": 7698216,
+    "CA_2": 5685475,
+    "CA_3": 11188180,
+    "CA_4": 4103676,
+    "TX_1": 5595292,
+    "TX_2": 7214384,
+    "TX_3": 6089330,
+    "WI_1": 5149062,
+    "WI_2": 6544012,
+    "WI_3": 6427782
+  },
+  "nota": "Exploración descriptiva. No son métricas de desempeño predictivo."
+}

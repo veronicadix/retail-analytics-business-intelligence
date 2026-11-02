@@ -1,0 +1,42 @@
+{
+  "modelo_pronostico": "Dia_semana_8s (producto-tienda)",
+  "test": "d_1886..d_1913",
+  "supuestos": {
+    "lead_time_dias": 7,
+    "revision_cada_dias": 7,
+    "inventario_inicial": "14 dias de pronostico medio por producto-tienda",
+    "buffer_dias_por_escenario": {
+      "sin_buffer": 0,
+      "buffer_7_dias": 7
+    },
+    "ventas_no_atendidas": "perdidas, no backorders",
+    "proveedor": "capacidad ilimitada",
+    "restricciones_presupuesto": "ninguna",
+    "costes": "no incluidos"
+  },
+  "resultados": [
+    {
+      "escenario": "sin_buffer",
+      "series": 30490,
+      "demanda_real_test": 1183626,
+      "demanda_atendida": 985097,
+      "demanda_no_atendida": 198529,
+      "fill_rate_pct": 83.23,
+      "unidades_ordenadas": 759451,
+      "inventario_final": 119777,
+      "inventario_medio_unidades": 269815
+    },
+    {
+      "escenario": "buffer_7_dias",
+      "series": 30490,
+      "demanda_real_test": 1183626,
+      "demanda_atendida": 1107316,
+      "demanda_no_atendida": 76310,
+      "fill_rate_pct": 93.55,
+      "unidades_ordenadas": 1139915,
+      "inventario_final": 356190,
+      "inventario_medio_unidades": 458951
+    }
+  ],
+  "advertencia": "Simulacion hipotetica: no representa inventario real ni una politica optima."
+}

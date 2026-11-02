@@ -32,3 +32,12 @@ caso_02_customer_retention/olist/olist_sql_caso_02.zip
 
 # Olist - permitir resultados agregados
 !caso_02_customer_retention/olist/resultados/*.csv
+
+# Caso 3 - M5 Forecasting
+/caso_03_demand_forecasting/datos/raw/
+/caso_03_demand_forecasting/datos/procesados/
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+.venv/

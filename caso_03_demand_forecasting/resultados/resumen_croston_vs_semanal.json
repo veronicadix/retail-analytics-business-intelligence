@@ -1,0 +1,27 @@
+{
+  "periodo_entrenamiento": "d_1718..d_1885",
+  "periodo_prueba": "d_1886..d_1913",
+  "series": 30490,
+  "unidades_reales_test": 1183626.0,
+  "comparacion": [
+    {
+      "modelo": "Dia_semana_8s",
+      "WAPE_micro_pct": 76.217,
+      "sesgo_pct": -0.6555,
+      "MAE_producto_dia": 1.0567
+    },
+    {
+      "modelo": "Croston_SBA_01",
+      "WAPE_micro_pct": 78.1035,
+      "sesgo_pct": -2.5681,
+      "MAE_producto_dia": 1.08285
+    },
+    {
+      "modelo": "Croston_SBA_02",
+      "WAPE_micro_pct": 78.5082,
+      "sesgo_pct": -3.3799,
+      "MAE_producto_dia": 1.08846
+    }
+  ],
+  "nota": "Benchmarks exploratorios. No se seleccionó política por tipo con el test. Clasificación hecha sólo con entrenamiento."
+}
