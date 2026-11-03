@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Process_AS_IS" targetNamespace="https://portfolio.example/ecommerce-conversion" exporter="ChatGPT" exporterVersion="1.0">
+  <bpmn:process id="Process_AS_IS" name="AS-IS conceptual - GA4 checkout" isExecutable="false">
+    <bpmn:startEvent id="as_start" name="Producto visualizado">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="as_view" name="Consultar producto">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="as_cartgw" name="¿Añade al carrito?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="as_cart" name="Añadir al carrito">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="as_checkgw" name="¿Inicia checkout?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="as_checkout" name="Iniciar checkout">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="as_ship" name="Proporcionar envío">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="as_pay" name="Proporcionar pago">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="as_buygw" name="¿Compra completada?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="as_purchase" name="Compra registrada">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="as_exit1" name="Sin avance desde producto">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="as_exit2" name="Sin avance desde carrito">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="as_exit3" name="Sin compra en secuencia">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="as_start" targetRef="as_view" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="as_view" targetRef="as_cartgw" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="as_cartgw" targetRef="as_cart" name="Sí" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="as_cartgw" targetRef="as_exit1" name="No" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="as_cart" targetRef="as_checkgw" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="as_checkgw" targetRef="as_checkout" name="Sí" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="as_checkgw" targetRef="as_exit2" name="No" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="as_checkout" targetRef="as_ship" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="as_ship" targetRef="as_pay" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="as_pay" targetRef="as_buygw" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="as_buygw" targetRef="as_purchase" name="Sí" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="as_buygw" targetRef="as_exit3" name="No" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Process_AS_IS">
+    <bpmndi:BPMNPlane id="Plane_Process_AS_IS" bpmnElement="Process_AS_IS">
+      <bpmndi:BPMNShape id="Shape_as_start" bpmnElement="as_start">
+        <dc:Bounds x="80" y="180" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_view" bpmnElement="as_view">
+        <dc:Bounds x="160" y="160" width="145" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_cartgw" bpmnElement="as_cartgw">
+        <dc:Bounds x="360" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_cart" bpmnElement="as_cart">
+        <dc:Bounds x="480" y="160" width="145" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_checkgw" bpmnElement="as_checkgw">
+        <dc:Bounds x="680" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_checkout" bpmnElement="as_checkout">
+        <dc:Bounds x="800" y="160" width="145" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_ship" bpmnElement="as_ship">
+        <dc:Bounds x="1000" y="160" width="145" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_pay" bpmnElement="as_pay">
+        <dc:Bounds x="1200" y="160" width="145" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_buygw" bpmnElement="as_buygw">
+        <dc:Bounds x="1400" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_purchase" bpmnElement="as_purchase">
+        <dc:Bounds x="1530" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_exit1" bpmnElement="as_exit1">
+        <dc:Bounds x="430" y="380" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_exit2" bpmnElement="as_exit2">
+        <dc:Bounds x="760" y="380" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_as_exit3" bpmnElement="as_exit3">
+        <dc:Bounds x="1460" y="380" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_1" bpmnElement="Flow_1">
+        <di:waypoint x="116" y="198.0" />
+        <di:waypoint x="138.0" y="198.0" />
+        <di:waypoint x="138.0" y="200.0" />
+        <di:waypoint x="160" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_2" bpmnElement="Flow_2">
+        <di:waypoint x="305" y="200.0" />
+        <di:waypoint x="360" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_3" bpmnElement="Flow_3">
+        <di:waypoint x="410" y="200.0" />
+        <di:waypoint x="480" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_4" bpmnElement="Flow_4">
+        <di:waypoint x="410" y="200.0" />
+        <di:waypoint x="420.0" y="200.0" />
+        <di:waypoint x="420.0" y="398.0" />
+        <di:waypoint x="430" y="398.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_5" bpmnElement="Flow_5">
+        <di:waypoint x="625" y="200.0" />
+        <di:waypoint x="680" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_6" bpmnElement="Flow_6">
+        <di:waypoint x="730" y="200.0" />
+        <di:waypoint x="800" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_7" bpmnElement="Flow_7">
+        <di:waypoint x="730" y="200.0" />
+        <di:waypoint x="745.0" y="200.0" />
+        <di:waypoint x="745.0" y="398.0" />
+        <di:waypoint x="760" y="398.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_8" bpmnElement="Flow_8">
+        <di:waypoint x="945" y="200.0" />
+        <di:waypoint x="1000" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_9" bpmnElement="Flow_9">
+        <di:waypoint x="1145" y="200.0" />
+        <di:waypoint x="1200" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_10" bpmnElement="Flow_10">
+        <di:waypoint x="1345" y="200.0" />
+        <di:waypoint x="1400" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_11" bpmnElement="Flow_11">
+        <di:waypoint x="1450" y="200.0" />
+        <di:waypoint x="1530" y="200.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_12" bpmnElement="Flow_12">
+        <di:waypoint x="1450" y="200.0" />
+        <di:waypoint x="1455.0" y="200.0" />
+        <di:waypoint x="1455.0" y="398.0" />
+        <di:waypoint x="1460" y="398.0" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
