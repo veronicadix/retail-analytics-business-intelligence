@@ -41,3 +41,8 @@ caso_02_customer_retention/olist/olist_sql_caso_02.zip
 __pycache__/
 *.pyc
 .venv/
+
+# Caso 04 - Permitir resultados agregados GA4
+!caso_04_ga4_business_analysis/resultados/01_exploracion_eventos_ga4.csv
+!caso_04_ga4_business_analysis/resultados/02_funnel_conversion_ga4.csv
+!caso_04_ga4_business_analysis/resultados/03_checkout_dropoff_ga4.csv

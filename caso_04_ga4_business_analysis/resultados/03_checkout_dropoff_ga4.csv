@@ -1,0 +1,5 @@
+etapa,usuarios,conversion_etapa_pct,abandono_etapa_pct
+begin_checkout,9715,,
+add_shipping_info,6588,67.81,32.19
+add_payment_info,4334,65.79,34.21
+purchase,3320,76.6,23.4
