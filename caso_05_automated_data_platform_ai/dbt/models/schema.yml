@@ -1,0 +1,43 @@
+version: 2
+models:
+  - name: stg_movimientos
+    description: "Vista normalizada de movimientos de venta y abonos de PostgreSQL."
+    columns:
+      - name: id_linea
+        data_tests: [not_null, unique]
+      - name: fecha
+        data_tests: [not_null]
+      - name: importe_gbp
+        data_tests: [not_null]
+      - name: incluir_ventas_brutas
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+      - name: incluir_abonos_mercancia
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1]
+                quote: false
+  - name: stg_productos
+    description: "Catálogo de códigos comerciales."
+    columns:
+      - name: producto
+        data_tests: [not_null, unique]
+  - name: stg_facturas
+    description: "Facturas identificadas por sus claves de negocio."
+    columns:
+      - name: factura
+        data_tests: [not_null, unique]
+  - name: mart_ventas_mensuales
+    description: "Serie mensual de ventas, abonos, clientes y unidades."
+    columns:
+      - name: mes
+        data_tests: [not_null, unique]
+  - name: mart_ventas_producto
+    description: "Indicadores por código de producto con descripción de catálogo cuando exista."
+    columns:
+      - name: producto
+        data_tests: [not_null, unique]

@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: retail_raw
+    description: "Tablas cargadas y conciliadas desde PostgreSQL mediante el pipeline del Caso 05."
+    database: maximal-arcade-512100-h2
+    schema: retail_pipeline_case05
+    tables:
+      - name: base_movimientos
+      - name: catalogo_codigos
+      - name: facturas_venta

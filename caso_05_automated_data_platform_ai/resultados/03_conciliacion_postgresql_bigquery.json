@@ -1,0 +1,23 @@
+[
+  {
+    "tabla": "base_movimientos",
+    "registros_origen": 1033036,
+    "registros_bigquery": 1033036,
+    "estado": "OK",
+    "segundos": 60.4
+  },
+  {
+    "tabla": "catalogo_codigos",
+    "registros_origen": 5304,
+    "registros_bigquery": 5304,
+    "estado": "OK",
+    "segundos": 8.7
+  },
+  {
+    "tabla": "facturas_venta",
+    "registros_origen": 39516,
+    "registros_bigquery": 39516,
+    "estado": "OK",
+    "segundos": 9.7
+  }
+]

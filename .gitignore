@@ -46,3 +46,28 @@ __pycache__/
 !caso_04_ga4_business_analysis/resultados/01_exploracion_eventos_ga4.csv
 !caso_04_ga4_business_analysis/resultados/02_funnel_conversion_ga4.csv
 !caso_04_ga4_business_analysis/resultados/03_checkout_dropoff_ga4.csv
+
+
+# Caso 05 - Archivos temporales dbt
+**/dbt/target/
+**/dbt/logs/
+**/dbt/dbt_packages/
+**/.user.yml
+
+# Caso 05 - Archivos operativos y temporales
+**/logs/
+**/__pycache__/
+**/.venv/
+*.zip
+
+# Caso 05 - Permitir resultados agregados
+!caso_05_automated_data_platform_ai/resultados/04_validacion_calidad_bigquery.csv
+!caso_05_automated_data_platform_ai/resultados/07_conciliacion_metricas_comerciales.csv
+
+# Caso 05 - Resultados agregados permitidos
+!caso_05_automated_data_platform_ai/resultados/04_validacion_calidad_bigquery.csv
+!caso_05_automated_data_platform_ai/resultados/07_conciliacion_metricas_comerciales.csv
+
+# Caso 05 - Resultados operativos privados
+caso_05_automated_data_platform_ai/resultados/08_orquestacion_*.json
+caso_05_automated_data_platform_ai/resultados/09_insights_claude_*.json
